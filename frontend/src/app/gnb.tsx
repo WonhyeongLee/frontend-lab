@@ -1,10 +1,9 @@
 'use client'
 
-import { ChildRoute, ParentRoute, ROUTE_PATH, gnbRootList, isParentRoute, routes } from '@/app/routes'
-import { ROUTE } from '../app/routes'
+import { ChildRoute, ParentRoute, ROUTE, ROUTE_PATH, gnbRootList, isParentRoute, routes } from '@/app/routes'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { useParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 const ParentGnbItem = ({
   route: { name, link, children },
@@ -46,11 +45,8 @@ const GnbItem = ({ route, currentPath }: { route: ROUTE; currentPath: ROUTE_PATH
 }
 
 const Gnb = () => {
-  const { item = [] } = useParams()
-  console.log(item);
-
-  const currentPath = ['', ...item].join('/') as ROUTE_PATH
-  console.log(currentPath);
+  const pathname = usePathname();
+  const currentPath = pathname as ROUTE_PATH;
 
   return (
     <aside>

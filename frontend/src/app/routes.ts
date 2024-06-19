@@ -1,13 +1,14 @@
-import Tests from "@/app/_components/01_test"
-import ChildTest1 from "@/app/_components/02_tab/2"
-import ChildTest2 from "@/app/_components/02_tab/3"
+import ChildComponentTest from "@/app/parent-test/child-test/page"
+import Child2ComponentTest from "@/app/parent-test/child-test/page"
+import TestPage from "@/app/test1/page"
+
 
 export const routePaths = [
   '/',
-  '/tests',
-  '/test2',
-  '/test2/child1',
-  '/test2/child2'
+  '/test1',
+  '/parent-test',
+  '/parent-test/child-test',
+  '/parent-test/child2-test'
 ] as const
 export type ROUTE_PATH = (typeof routePaths)[number]
 
@@ -30,33 +31,33 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     link: '/',
     name: 'root',
     children: [
-      '/tests',
-      '/test2'
+      '/test1',
+      '/parent-test',
     ]
   },
-  '/tests': {
-    key: '/tests',
-    link: '/tests',
+  '/test1': {
+    key: '/test1',
+    link: '/test1',
     name: '테스트',
-    children: Tests
+    children: TestPage
   },
-  '/test2': {
-    key: '/test2',
-    link: '/test2/child1',
-    name: '테스트2',
-    children: ['/test2/child1','/test2/child2'],
+  '/parent-test': {
+    key: '/parent-test',
+    link: '/parent-test/child-test',
+    name: '부모요소테스트',
+    children: ['/parent-test/child-test','/parent-test/child2-test'],
   },
-  '/test2/child1': {
-    key: '/test2/child1',
-    link: '/test2/child1',
-    name: '테스트2-1',
-    children: ChildTest1
+  '/parent-test/child-test': {
+    key: '/parent-test/child-test',
+    link: '/parent-test/child-test',
+    name: '자식요소테스트1',
+    children: ChildComponentTest
   },
-  '/test2/child2': {
-    key: '/test2/child2',
-    link: '/test2/child2',
-    name: '테스트2-2',
-    children: ChildTest2
+  '/parent-test/child2-test': {
+    key: '/parent-test/child2-test',
+    link: '/parent-test/child2-test',
+    name: '자식요소테스트2',
+    children: Child2ComponentTest
   }
 }
 
