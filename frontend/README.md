@@ -4,4 +4,8 @@
 
 ## 진행한 내용들
 
-- JWT 로그인 테스트
+### GNB 구현
+
+A. routes.ts 파일과 catch-all 동적 라우팅을 사용한 방식
+B. Next14의 App router을 사용한 방식
+
