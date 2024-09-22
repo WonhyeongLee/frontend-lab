@@ -1,0 +1,6 @@
+[submodule "projects/vanilla-todolist"]
+	path = projects/vanilla-todolist
+	url = https://github.com/WonhyeongLee/vanilla-ts-todo-list.git
+[submodule "projects/vanilla-ui-components"]
+	path = projects/vanilla-ui-components
+	url = https://github.com/WonhyeongLee/vanilla-ui-components.git
